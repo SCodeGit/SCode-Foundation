@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SCode Foundations | Sponsors & Impact</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="https://raw.githubusercontent.com/SCodeGit/SCode-Foundation/3415d5a312482e1f8dcce28abc32ffaabf9a76a1/images/scode%20foundations.png">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#111;
+  --card:#f3f3f3;
+  --accent:#111;
+  --accent-glow:rgba(37,99,235,.4);
+  --shadow:rgba(0,0,0,.18);
+  --radius:20px;
+  --speed:.4s;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0d0f14;
+    --text:#f2f2f2;
+    --card:#191c24;
+    --accent:#ffffff;
+    --accent-glow:rgba(37,99,235,.6);
+    --shadow:rgba(0,0,0,.8);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Arial;
+  background:var(--bg);
+  color:var(--text);
+  transition:background var(--speed),color var(--speed);
+}
+
+/* Header */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  box-shadow:0 10px 30px var(--shadow);
+  position:sticky;
+  top:0;
+  background:var(--bg);
+  z-index:20;
+}
+header img{height:45px;transition:.3s}
+header img:hover{transform:scale(1.05);}
+nav a{
+  margin:0 12px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:600;
+  position:relative;
+  transition:.3s;
+}
+nav a::after{
+  content:"";
+  position:absolute;
+  bottom:-6px;left:0;
+  width:0;height:2px;
+  background:var(--accent);
+  transition:.3s;
+}
+nav a:hover::after{width:100%}
+nav a:hover{text-shadow:0 0 10px var(--accent-glow);}
+
+/* Hero */
+.hero{
+  min-height:55vh;
+  background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1554224155-6726b3ff858f") center/cover;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition:.5s;
+}
+.hero h1{font-size:3rem;animation:fadeUp .9s ease both;}
+.hero p{animation:fadeUp .9s ease .3s both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+
+/* Sections */
+.section{padding:80px 10%}
+h2{text-align:center;margin-bottom:50px}
+
+/* Sponsors */
+.sponsors{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:30px;
+}
+.sponsor{
+  background:var(--card);
+  padding:30px;
+  border-radius:var(--radius);
+  box-shadow:0 25px 60px var(--shadow);
+  text-align:center;
+  transition:.6s, transform .3s;
+}
+.sponsor:hover{transform:translateY(-18px) scale(1.05);}
+.sponsor img{
+  width:120px;
+  margin-bottom:15px;
+  filter:grayscale(100%);
+  transition:.4s;
+}
+.sponsor:hover img{filter:none;transform:scale(1.05);}
+
+/* Stats */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:25px;
+  text-align:center;
+}
+.stat{
+  background:var(--card);
+  padding:35px;
+  border-radius:var(--radius);
+  box-shadow:0 25px 60px var(--shadow);
+  transition:.3s, transform .3s;
+}
+.stat:hover{transform:translateY(-10px) scale(1.03);}
+.stat h1{font-size:2.5rem;margin:0}
+
+/* Table */
+.table{overflow-x:auto;margin-top:30px;}
+table{width:100%;border-collapse:collapse;transition:.3s;}
+th,td{padding:14px;border-bottom:1px solid rgba(0,0,0,.1);}
+th{background:var(--card);}
+tr:hover{background:var(--accent-glow);color:#fff;}
+
+/* Footer */
+footer{
+  background:#000;
+  color:#fff;
+  padding:60px 10%;
+}
+footer a{color:#fff; text-decoration:none; transition:.3s;}
+footer a:hover{text-decoration:underline;}
+
+/* Icon Links (Masked Contact Info) */
+.icon-links{display:flex;gap:15px;margin-top:20px;}
+.icon-links a{
+  display:flex;align-items:center;justify-content:center;
+  width:50px;height:50px;background:var(--accent);
+  border-radius:50%;color:#fff;font-size:1.2rem;
+  transition:.3s, transform .3s;text-decoration:none;position:relative;
+}
+.icon-links a:hover{transform:translateY(-5px) scale(1.1);box-shadow:0 15px 35px rgba(0,0,0,.4);}
+.icon-links a::after{
+  content:attr(title);
+  position:absolute;bottom:-32px;background:#000;color:#fff;
+  font-size:.75rem;padding:4px 8px;border-radius:8px;
+  opacity:0;transform:translateY(-10px);pointer-events:none;
+  transition:.3s;
+}
+.icon-links a:hover::after{opacity:1;transform:none}
+
+/* Dark/Light Toggle Button */
+#themeToggle{
+  position:fixed;top:20px;right:20px;width:50px;height:50px;
+  border-radius:50%;border:none;background:var(--accent);
+  color:#fff;font-size:1.2rem;cursor:pointer;
+  box-shadow:0 0 20px var(--accent-glow);z-index:999;
+  transition:.3s;
+}
+#themeToggle:hover{transform:rotate(25deg) scale(1.1);}
+
+/* Back to Top */
+#backToTop{
+  position:fixed;bottom:25px;right:25px;width:50px;height:50px;
+  background:var(--accent);color:#fff;display:none;
+  align-items:center;justify-content:center;border-radius:50%;
+  cursor:pointer;box-shadow:0 10px 25px rgba(0,0,0,.4);
+  z-index:999;transition:.3s;
+}
+#backToTop:hover{transform:translateY(-6px) scale(1.1);}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html"><img src="https://raw.githubusercontent.com/SCodeGit/SCode-Foundation/3415d5a312482e1f8dcce28abc32ffaabf9a76a1/images/scode%20foundations.png"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<button id="themeToggle">🌓</button>
+
+<section class="hero">
+  <div>
+    <h1>Our Sponsors & Impact</h1>
+    <p>Transparency, accountability, and measurable change.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Partners & Sponsors</h2>
+  <div class="sponsors">
+    <div class="sponsor">
+      <img src="https://via.placeholder.com/150">
+      <h3>Gold Partner</h3>
+      <p>Supporting nationwide education outreach.</p>
+    </div>
+    <div class="sponsor">
+      <img src="https://via.placeholder.com/150">
+      <h3>Silver Partner</h3>
+      <p>Hygiene and sanitation programs.</p>
+    </div>
+    <div class="sponsor">
+      <img src="https://via.placeholder.com/150">
+      <h3>Community Donor</h3>
+      <p>Grassroots educational support.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Foundation Statistics</h2>
+  <div class="stats">
+    <div class="stat"><h1>12</h1><p>Schools Visited</p></div>
+    <div class="stat"><h1>4,850</h1><p>Students Benefited</p></div>
+    <div class="stat"><h1>8,420</h1><p>Total Items Donated</p></div>
+    <div class="stat"><h1>4</h1><p>Regions Covered</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Donation Breakdown</h2>
+  <div class="table">
+    <table>
+      <tr><th>School</th><th>Items Donated</th><th>Students</th></tr>
+      <tr><td>Peki D/A Primary</td><td>420</td><td>310</td></tr>
+      <tr><td>Abutia JHS</td><td>310</td><td>220</td></tr>
+      <tr><td>Have Technical</td><td>580</td><td>400</td></tr>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <h2>Become a Sponsor</h2>
+  <p>Your support directly funds education and hygiene interventions.</p>
+  <div class="icon-links">
+    <a href="mailto:atubraabraham@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+  <p>© <span id="year"></span> SCode Foundations · All Rights Reserved</p>
+</footer>
+
+<div id="backToTop">↑</div>
+
+<script>
+// Auto-update year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Dark/Light Mode Toggle
+const toggle=document.getElementById('themeToggle');
+toggle.addEventListener('click',()=>{
+  if(document.body.classList.contains('dark-mode')){
+    document.body.classList.remove('dark-mode');
+    document.body.classList.add('light-mode');
+  } else {
+    document.body.classList.remove('light-mode');
+    document.body.classList.add('dark-mode');
+  }
+});
+
+// Back-to-top Button
+const back=document.getElementById('backToTop');
+window.addEventListener('scroll',()=>{
+  back.style.display = window.scrollY>300?'flex':'none';
+});
+back.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
+</script>
+
+</body>
+</html>
